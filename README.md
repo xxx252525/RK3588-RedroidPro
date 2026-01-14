@@ -26,7 +26,10 @@ cd redroid-rk3588
 ```
 使用docker-ce：
 ```shell
+# 当前用户处于docker组
 docker compose up -d
+# 当前用户不在docker组，使用root权限
+sudo docker compose up -d
 ```
 使用docker.io：
 ```shell
