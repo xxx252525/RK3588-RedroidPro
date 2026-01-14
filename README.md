@@ -38,5 +38,5 @@ docker-compose up -d
 ```
 手动运行(推荐)：
 ```shell
-docker run -d -p 5555:5555 -v ~/redroid-data:/data --restart unless-stopped --name redroid --privileged cnflysky/redroid-rk3588:lineage-20 androidboot.redroid_height=1920 androidboot.redroid_width=1080
+sudo docker run -d -p 5555:5555 -v ~/redroid-test:/data --restart unless-stopped --name redroid-test --privileged tiangesec/redroid:12-arm64 androidboot.redroid_height=1920 androidboot.redroid_width=1080
 ```
