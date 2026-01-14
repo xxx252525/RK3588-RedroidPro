@@ -17,7 +17,7 @@ DMA-BUF设备支持
 使用docker-compose：
 克隆项目：
 ```
-git clone https://github.com/CNflysky/redroid-rk3588.git --depth 1
+git clone https://github.com/xxx252525/RK3588-RedroidPro.git --depth 1
 cd redroid-rk3588
 ```
 使用docker-ce：
