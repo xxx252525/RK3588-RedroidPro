@@ -5,12 +5,12 @@
 Orange Pi 5 Pro 16G RAM ，运行Ubuntu Rockchip ，内核版本 5.10.0-1012-rockchip（默认内核），Docker version 27.3.1
 
 ## 系统要求
-内核版本 Ubuntu vendor kernel for RK35XX (linux-image-vendor-rk35xx)
-Mali CSF GPU 内核驱动
-Mali 固件，置于/lib/firmware/下
-CONFIG_PSI=y
-CONFIG_ANDROID_BINDERFS=y
-DMA-BUF设备支持
+- 内核版本 Ubuntu vendor kernel for RK35XX (linux-image-vendor-rk35xx)
+- Mali CSF GPU 内核驱动
+- Mali 固件，置于/lib/firmware/下
+- CONFIG_PSI=y
+- CONFIG_ANDROID_BINDERFS=y
+- DMA-BUF设备支持
 你可以运行envcheck.sh来检查这些要求。
 
 ## 部署
