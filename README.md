@@ -2,8 +2,8 @@
 适用于瑞芯微RK3588系列SoC的Redroid镜像，针对Redroid进行深度定制
 
 ## 测试设备
-- 设备：Orange Pi 5 Pro 1
-- 内存：6G RAM 
+- 设备：Orange Pi 5 Pro 
+- 内存：16G RAM 
 - 系统：Ubuntu Rockchip 
 - 系统内核：5.10.0-1012-rockchip
 - Docker版本：27.3.1
