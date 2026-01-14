@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  redroid:
+    image: tiangesec/redroid:12-arm64
+    container_name: redroid
+    restart: unless-stopped
+    privileged: true
+
+    ports:
+      - "5555:5555"   # ADB
+
+    volumes:
+      - ./redroid-data:/data
+
+    command:
+      - "androidboot.redroid_width=1080"
+      - "androidboot.redroid_height=1920"
+      - "androidboot.redroid_dpi=440"
+
+      # 启用 Magisk（如果你编译时支持）
+      # - "androidboot.redroid_magisk=1"
+
+      # 假 WiFi
+      # - "androidboot.redroid_fake_wifi=1"
+
+      # Android 设备特性
+      - "ro.build.characteristics=default"
