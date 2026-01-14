@@ -66,18 +66,41 @@ check_kernel_config_location() {
     fi
 }
 
+# check_mali_driver() {
+#     if $GREP_EXE -q "^CONFIG_MALI_BIFROST=(y|m)" $CONFIG_PATH 2>/dev/null; then
+#         color_echo $GREEN "Mali GPU driver enabled"
+#         [ -c /dev/mali0 ] || {
+#             color_echo $RED "FATAL: /dev/mali0 not found (GPU disabled in DT)"
+#             export FATAL=1
+#         }
+#     else
+#         color_echo $RED "FATAL: Mali GPU kernel driver missing"
+#         export FATAL=1
+#     fi
+# }
+
 check_mali_driver() {
+    # Bifrost (vendor mali)
     if $GREP_EXE -q "^CONFIG_MALI_BIFROST=(y|m)" $CONFIG_PATH 2>/dev/null; then
-        color_echo $GREEN "Mali GPU driver enabled"
+        color_echo $GREEN "Mali Bifrost kernel driver enabled"
         [ -c /dev/mali0 ] || {
-            color_echo $RED "FATAL: /dev/mali0 not found (GPU disabled in DT)"
-            export FATAL=1
+            color_echo $RED "WARN: /dev/mali0 not found (DT may disable vendor Mali)"
         }
-    else
-        color_echo $RED "FATAL: Mali GPU kernel driver missing"
-        export FATAL=1
+        return
     fi
+
+    # Panfrost (open source)
+    if $GREP_EXE -q "^CONFIG_DRM_PANFROST=(y|m)" $CONFIG_PATH 2>/dev/null; then
+        color_echo $GREEN "Mali Panfrost kernel driver enabled"
+        [ -c /dev/dri/renderD128 ] && color_echo $GREEN "DRM render node present"
+        return
+    fi
+
+    color_echo $RED "FATAL: No supported Mali GPU driver found (Bifrost / Panfrost)"
+    export FATAL=1
 }
+
+
 
 check_mali_firmware() {
     if [ -f /lib/firmware/mali_csffw.bin ]; then
