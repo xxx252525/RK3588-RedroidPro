@@ -3,7 +3,7 @@ version: "3.9"
 services:
   redroid:
     image: tiangesec/redroid:12-arm64
-    container_name: redroid
+    container_name: Redroid-QYtest
     restart: unless-stopped
     privileged: true
 
