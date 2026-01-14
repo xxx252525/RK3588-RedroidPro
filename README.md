@@ -24,7 +24,7 @@
 git clone https://github.com/xxx252525/RK3588-RedroidPro.git --depth 1
 cd redroid-rk3588
 ```
-使用docker-ce：
+使用docker-ce运行云手机：
 ```shell
 # 当前用户处于docker组
 docker compose up -d
@@ -36,7 +36,7 @@ sudo docker compose up -d
 sudo apt install docker-compose
 docker-compose up -d
 ```
-手动运行(推荐)：
+手动运行启动云手机(推荐)：
 ```shell
-sudo docker run -d -p 5555:5555 -v ~/redroid-test:/data --restart unless-stopped --name redroid-test --privileged tiangesec/redroid:12-arm64 androidboot.redroid_height=1920 androidboot.redroid_width=1080
+sudo docker run -d -p 5555:5555 -v ~/redroid-data:/data --restart unless-stopped --name RedroidPro-test --privileged tiangesec/redroid:12-arm64 androidboot.redroid_height=1920 androidboot.redroid_width=1080
 ```

@@ -17,7 +17,9 @@ services:
       - "androidboot.redroid_width=1080"
       - "androidboot.redroid_height=1920"
       - "androidboot.redroid_dpi=440"
-      - "androidboot.redroid_render_mode=software"
+
+      # 软件驱动
+      # - "androidboot.redroid_render_mode=software"
 
       # 启用 Magisk（如果你编译时支持）
       # - "androidboot.redroid_magisk=1"
